@@ -1,2 +1,6 @@
-class DrinksController < ApplicationController
+class DrinksController < ApiController
+  def index
+    @drinks = Drink.all
+    render json: @drinks
+  end
 end
