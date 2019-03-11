@@ -1,0 +1,13 @@
+{
+  "name": "list-of-ingredients",
+  "license": "MIT",
+  "engines": {
+    "node": "9.10.0",
+    "yarn": "1.5.1"
+  },
+  "scripts": {
+    "build": "yarn --cwd list-of-ingredients-client install && yarn --cwd list-of-ingredients-client build",
+    "deploy": "cp -a list-of-ingredients-client/build/. public/",
+    "postinstall": "yarn build && yarn deploy"
+  }
+}
