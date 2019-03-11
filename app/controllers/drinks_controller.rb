@@ -1,6 +1,11 @@
 class DrinksController < ApiController
   def index
     @drinks = Drink.all
-    render json: @drinks
+    render json: @drinks.to_json
+  end
+
+  def show
+    @drink = Drink.find(params[:id])
+    render json: @drink.to_json(include: { ingredients: { only: [:id, :name] } })
   end
 end
